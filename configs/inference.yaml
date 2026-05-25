@@ -22,15 +22,15 @@ data:
   - 80
 
 inference:
-  sampling_steps: 4
+  sampling_steps: 10  # increased from 4 for better quality
   sink_size: 8
-  guidance_scale: 1.0
+  guidance_scale: 5.0  # increased from 1.0; better prompt adherence
   multi_shot_sink: true
   multi_shot_rope_offset: 8
   streaming_vae: false
   async_vae: false
   vae_type: wan # wan, mg_lightvae, mg_lightvae_v2
-  vae_device: "cuda:2"
+  vae_device: "cuda:0"  # changed from cuda:2 to match my single-GPU setup
 
 checkpoints:
   generator_ckpt: /path/to/longlive2/generator_checkpoint.pt
@@ -45,4 +45,4 @@ adapter:
   verbose: true
 
 logging:
-  seed: 0
+  seed: 42  # changed from 0 for reproducible but varied outputs
