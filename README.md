@@ -13,6 +13,8 @@
 [![Docs](https://img.shields.io/badge/Full-Documentation-green)](https://nvlabs.github.io/LongLive/LongLive2/docs/)
 
 > **Personal fork note:** I'm using this repo to learn about NVFP4 quantization and sequence parallelism for video generation. My main interest is the inference pipeline and the DMD distillation setup.
+>
+> **Setup notes (for myself):** Tested on a single RTX 4090 (24GB). The NVFP4 model fits fine; the BF16 5B does NOT fit without offloading. Use `--sp_size 1` when running single-GPU inference to avoid the sequence-parallel init overhead.
 
 <div align="center">
 
@@ -40,7 +42,4 @@
 
 **LongLive 1.0**: Real-time Interactive Long Video Generation. [You can find it here](https://github.com/NVlabs/LongLive/tree/v1.0) in our V1.0 branch.
 
-**LongLive 2.0**: an NVFP4 Parallel Infrastructure for Long Video Generation
-- For training, it supports
-  - [x] Balanced sequence parallel for AR training (teacher-forcing).
-  - [x] AR training on multi-shot (or single-sho
+**LongLive 2.0**: an
