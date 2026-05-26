@@ -15,6 +15,14 @@
 > **Personal fork note:** I'm using this repo to learn about NVFP4 quantization and sequence parallelism for video generation. My main interest is the inference pipeline and the DMD distillation setup.
 >
 > **Setup notes (for myself):** Tested on a single RTX 4090 (24GB). The NVFP4 model fits fine; the BF16 5B does NOT fit without offloading. Use `--sp_size 1` when running single-GPU inference to avoid the sequence-parallel init overhead.
+>
+> **Inference command I actually use (RTX 4090, NVFP4, 720p, 5s clip):**
+> ```bash
+> python inference.py --model_path Efficient-Large-Model/LongLive-2.0-5B-NVFP4-S4 \
+>     --sp_size 1 --num_frames 121 --resolution 720p \
+>     --prompt "a timelapse of clouds over a mountain range" \
+>     --output_dir outputs/
+> ```
 
 <div align="center">
 
@@ -36,10 +44,4 @@
 - 🎉 [2026.1.27] LongLive is accepted by **ICLR-2026**.
 - 🔥 [2026.1.11] LongLive supports adapting LongLive's original RoPE into KV-cache relative RoPE and generates infinite long videos!
 - 🔥 [2025.11.3] We implement LongLive on linear attention model [SANA-Video](https://nvlabs.github.io/Sana/Video/)! Now SANA-Video can generate 60s interactive videos in real-time.
-- 🔥 [2025.9.29] We release [Paper](https://arxiv.org/abs/2509.22622), this GitHub repo [LongLive](https://github.com/NVlabs/LongLive) with all training and inference code, the model weight [LongLive-1.3B](https://huggingface.co/Efficient-Large-Model/LongLive-1.3B), and demo page [Website](https://nvlabs.github.io/LongLive).
-
-## Introduction
-
-**LongLive 1.0**: Real-time Interactive Long Video Generation. [You can find it here](https://github.com/NVlabs/LongLive/tree/v1.0) in our V1.0 branch.
-
-**LongLive 2.0**: an
+- 🔥 [2025.9.29] We release [Paper](https://arxiv.org/abs/2509.22622), this GitHub repo [LongLive](https://github.com/NVlabs/LongLive) with all training and inference code, the model weight [LongLive-1.3B](https://huggingface.co/Efficient-Large-Model/LongLive-1.3B), and demo pa
