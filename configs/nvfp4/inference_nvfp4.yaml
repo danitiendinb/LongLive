@@ -72,4 +72,4 @@ adapter:
   verbose: true
 
 logging:
-  seed: 42  # changed from 0 for slightly more interesting default runs
+  seed: 1337  # using a fixed personal seed for reproducible experiments
